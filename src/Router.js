@@ -20,7 +20,7 @@ const commonSceneStyles = {
 };
 const scenesConfig = [
   {
-    key: 'singUpLogin',
+    key: 'signUpLogin',
     component: SignUpLogin,
     initial: true,
     onRight: () => {},
