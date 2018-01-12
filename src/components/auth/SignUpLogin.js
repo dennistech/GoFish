@@ -35,12 +35,6 @@ const styles = StyleSheet.create({
 });
 
 class SignUpLogin extends Component {
-  buttonSignUpPressed() {
-    Actions.SignUp();
-  }
-  buttonLogInPressed() {
-    Actions.LogIn();
-  }
   render() {
     return (
       <AppBackgroundView style={styles.container}>
@@ -52,7 +46,7 @@ class SignUpLogin extends Component {
             <Button
               backgroundColor="#007fff"
               fontColor="black"
-              onPress={this.buttonSignUpPressed}
+              onPress={() => Actions.signUp()}
             >
               SIGN UP
             </Button>
@@ -61,7 +55,7 @@ class SignUpLogin extends Component {
             <Button
               backgroundColor="transparent"
               fontColor="#007fff"
-              onPress={this.buttonLogInPressed}
+              onPress={() => Actions.logIn()}
             >
               LOG IN
             </Button>

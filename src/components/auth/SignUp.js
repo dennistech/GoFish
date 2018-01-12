@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-start',
-    backgroundColor: 'black',
   },
   facebookButtonContainer: {
     height: 100,
@@ -36,6 +35,7 @@ const styles = StyleSheet.create({
   ToSContainer: {
     alignItems: 'center',
     marginTop: 15,
+    backgroundColor: 'transparent',
   },
   ToSTextStyle: {
     color: 'white',
@@ -53,15 +53,21 @@ class SignUp extends Component {
     this.onNameChange = this.onNameChange.bind(this);
     this.onEmailChange = this.onEmailChange.bind(this);
     this.onPasswordChange = this.onPasswordChange.bind(this);
+
+    this.state = {
+      name: '',
+      email: '',
+      password: '',
+    };
   }
   onNameChange(text) {
-    this.props.nameChanged(text);
+    this.setState({ name: text });
   }
   onEmailChange(text) {
-    this.props.emailChanged(text);
+    this.setState({ email: text });
   }
   onPasswordChange(text) {
-    this.props.passwordChanged(text);
+    this.setState({ password: text });
   }
   render() {
     return (
@@ -77,20 +83,20 @@ class SignUp extends Component {
           <Input
             label="NAME"
             placeholder="JOHN DOE"
-            value={this.props.name}
+            value={this.state.name}
             onChangeText={this.onNameChange}
           />
           <Input
             label="EMAIL"
             placeholder="HELLO@WOLRD.COM"
-            value={this.props.email}
+            value={this.state.email}
             onChangeText={this.onEmailChange}
           />
           <Input
             secureTextEntry
             label="PASSWORD"
             placeholder="********"
-            value={this.props.password}
+            value={this.state.password}
             onChangeText={this.onPasswordChange}
           />
         </View>

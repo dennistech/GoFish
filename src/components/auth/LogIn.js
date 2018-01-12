@@ -41,12 +41,17 @@ class LogIn extends Component {
 
     this.onEmailChange = this.onEmailChange.bind(this);
     this.onPasswordChange = this.onPasswordChange.bind(this);
+
+    this.state = {
+      email: '',
+      password: '',
+    };
   }
   onEmailChange(text) {
-    this.props.emailChanged(text);
+    this.setState({ email: text });
   }
   onPasswordChange(text) {
-    this.props.passwordChanged(text);
+    this.setState({ password: text });
   }
   render() {
     return (
@@ -62,14 +67,14 @@ class LogIn extends Component {
           <Input
             label="EMAIL"
             placeholder="HELLO@WOLRD.COM"
-            value={this.props.email}
+            value={this.state.email}
             onChangeText={this.onEmailChange}
           />
           <Input
             secureTextEntry
             label="PASSWORD"
             placeholder="********"
-            value={this.props.password}
+            value={this.state.password}
             onChangeText={this.onPasswordChange}
           />
         </View>
